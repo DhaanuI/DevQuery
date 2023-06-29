@@ -2,7 +2,7 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
-
+const jwt = require("jsonwebtoken");
 //-----------dotenv-----------//
 require('dotenv').config();
 
@@ -16,7 +16,7 @@ app.use(cookieParser())
 //----------cors-----------//
 const cors = require('cors');
 app.use(cors());
-
+const path = require('path')
 
 //-----------routes----------//
 const userRoute = require("./routes/userRoute");
@@ -35,16 +35,16 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: "https://rococo-rolypoly-a926ac.netlify.app/",
-        failureRedirect: 'https://rococo-rolypoly-a926ac.netlify.app/html/login.html',
+        // successRedirect: `https://devquery.netlify.app/`,
+        failureRedirect: 'https://devquery.netlify.app/html/login.html',
         session: false
     }),
     function (req, res) {
         // Successful authentication, redirect home.
-        console.log(req.user)
-        res.json({"user": req.user})
-        //   res.redirect("https://rococo-rolypoly-a926ac.netlify.app/")
 
+        const token = jwt.sign({ userID: req.user._id, name: req.user.name }, process.env.key)
+
+        res.redirect(`https://devquery.netlify.app?name=${req.user.name}&token=${token}`)
     });
 
 //----------------Facebook Oauth----------//
@@ -57,15 +57,19 @@ app.get("/auth/facebook", Passport.authenticate("facebook", {
 
 app.get("/auth/facebook/callback",
     Passport.authenticate("facebook", {
-        failureRedirect: "https://rococo-rolypoly-a926ac.netlify.app/html/login.html",
+        failureRedirect: "https://devquery.netlify.app/html/login.html",
         session: false
     }),
     function (req, res) {
         console.log(req.user)
         res.cookie(req.user)
-        res.redirect("https://rococo-rolypoly-a926ac.netlify.app/")
+        res.redirect("https://devquery.netlify.app/")
     });
 
+// app.get("/",(req,res)=>{
+//     app.use(express.static(path.join(__dirname,"../","frontend")));
+//     res.sendFile(path.resolve(__dirname,"../","frontend","index.html"));
+// })
 
 //---------server------------//
 app.listen(process.env.port, async () => {

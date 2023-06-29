@@ -57,8 +57,7 @@ ques.addEventListener("input", () => {
     }, 50);
 
     let q = document.getElementById("ques").value
-    // console.log(q)
-
+   
     localStorage.setItem("query", q)
 
     if (window.location.href == "https://devquery.netlify.app/") {
@@ -68,6 +67,7 @@ ques.addEventListener("input", () => {
       window.location.href = "https://devquery.netlify.app/html/home.html"
     }
     else window.location.href = "home.html"
+
   });
 })
 

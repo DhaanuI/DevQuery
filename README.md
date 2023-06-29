@@ -95,7 +95,13 @@ https://github.com/DhaanuI/DevQuery/
 
 ## Demo
 
+  ```
 https://devquery.netlify.app/
+```
+## backend
+```
+https://devquery.onrender.com/
+```
 
 
  ## Authors

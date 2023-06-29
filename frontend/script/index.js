@@ -1,4 +1,4 @@
-window.onload = ()=>{
+window.onload = () => {
   document.getElementById("in_nav_icon").href = "./index.html"
   document.getElementById("in_logo").src = "./favicon/DevQuery.logo.png"
   document.getElementById("in_mini_logo").src = "./favicon/mini.logo.png"
@@ -123,4 +123,18 @@ function durationSlider() {
       index < questions_img.length - 1 ? index++ : (index = 0);
     }
   }, 3000);
+}
+
+// Assuming the URL is: https://example.com/?name=John&age=25
+
+// Get the URL search parameters
+const urlParams = new URLSearchParams(window.location.search);
+
+// Get the value of a specific query parameter
+const username = urlParams.get('name');
+const token = urlParams.get('token');
+if(username && token){
+
+  localStorage.setItem("token", token)
+  localStorage.setItem("username", username)
 }
