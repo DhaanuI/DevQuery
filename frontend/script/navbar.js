@@ -8,6 +8,12 @@ navbarContainer.innerHTML = navbar();
 let footercontainer = document.getElementById("FOOTER");
 footercontainer.innerHTML = footer();
 
+let userName = localStorage.getItem("username");
+if(userName){
+ // window.location.reload;
+  ifUser();
+}
+
 /*Hamburger Menu */
 var hamburger_menu = document.querySelector(".hamburger");
 var button = hamburger_menu.querySelector(".hamburger-menu");
@@ -43,7 +49,7 @@ search_btn.addEventListener("click", () => {
   }, 50);
 });
 
-ifUser()
+
 
 const ques = document.querySelector('#ques')
 const searching = document.querySelector('#searching');
@@ -81,6 +87,7 @@ function ifUser() {
   let parentName = document.getElementById("user-info")
   let name = document.getElementById("user-name");
   let userName = localStorage.getItem("username");
+  
   let loginbtn = document.getElementById("in_login");
   let signupbtn = document.getElementById("in_signup");
   if (userName) {
