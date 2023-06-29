@@ -1,6 +1,6 @@
 /*NavBar import*/
 import { navbar, footer } from "../components/nav.js";
-ifUser()
+
 
 let navbarContainer = document.getElementById("NAVBAR");
 navbarContainer.innerHTML = navbar();
@@ -43,7 +43,7 @@ search_btn.addEventListener("click", () => {
   }, 50);
 });
 
-
+ifUser()
 
 const ques = document.querySelector('#ques')
 const searching = document.querySelector('#searching');
