@@ -9,11 +9,7 @@ let footercontainer = document.getElementById("FOOTER");
 footercontainer.innerHTML = footer();
 
 let userName = localStorage.getItem("username");
-if(userName){
-  ifUser();
- window.location.reload();
- 
-}
+
 
 /*Hamburger Menu */
 var hamburger_menu = document.querySelector(".hamburger");
@@ -104,5 +100,5 @@ function ifUser() {
     parentName.innerHTML = ""
   }
 }
-
+ifUser()
 
