@@ -10,7 +10,7 @@ footercontainer.innerHTML = footer();
 
 let userName = localStorage.getItem("username");
 if(userName){
- // window.location.reload;
+ window.location.reload();
   ifUser();
 }
 
