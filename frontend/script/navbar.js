@@ -1,5 +1,6 @@
 /*NavBar import*/
 import { navbar, footer } from "../components/nav.js";
+ifUser()
 
 let navbarContainer = document.getElementById("NAVBAR");
 navbarContainer.innerHTML = navbar();
@@ -95,5 +96,5 @@ function ifUser() {
     parentName.innerHTML = ""
   }
 }
-ifUser()
+
 
