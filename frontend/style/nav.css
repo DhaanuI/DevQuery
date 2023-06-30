@@ -592,6 +592,10 @@ nav {
   top: -4.5rem;
 }
 
+#user-info{
+ margin-top:-8px
+}
+
 /* End Footer */
 
 @media screen and (max-width: 830px) {
