@@ -92,7 +92,7 @@ function ifUser() {
   let loginbtn = document.getElementById("in_login");
   let signupbtn = document.getElementById("in_signup");
   if (userName) {
-    name.innerText = "Hello " + userName.split(" ").slice(0, 1);
+    name.innerText = "Hello "+"\n" + userName.split(" ").slice(0, 1);
     loginbtn.innerText = "Log out"
     signupbtn.style.display = "none"
     if (loginbtn.innerText == "Log out") {
